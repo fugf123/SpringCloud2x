@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/fugf123/confi-repo.git
+          username: fugf123
+          password: fugf123456
+          basedir: E:\work\baseDir
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+#eg:[/actuator/bus-refresh],methods=[POST]
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

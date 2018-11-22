@@ -1,0 +1,134 @@
+#首先加载配置文件 引导文件
+  spring:
+    application:
+      name: order #对应配置服务名  /{name}-{profiles}.yml     /{label}/{name}-{profiles}.yml
+    redis:
+      host: localhost
+      port: 6379
+    cloud:
+      config:
+        discovery:
+          enabled: true
+          service-id: CONFIG  #配置中心服务
+        profile: dev #配置文件环境
+      stream:
+        bindings:
+          myMessageInput:
+            #destination: myStream
+            group: order     #对消息队列进行分组防止多个实例重复接受到消息
+            content-type: application/json  #改变返回结果格式
+          #myMessageOutput: myStream
+    rabbitmq:  #配置消息队列 基本配置
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+      #客户端基本配置  监听消息
+      listener:
+        simple:
+          acknowledge-mode: manual  #签收模式manual手工签收。auto自动签收
+          concurrency: 5  #并发数
+          max-concurrency: 10  #最大并发数
+          prefetch: 1  #限流
+          #不建议开启事务
+      publisher-confirms: true  #异步等待，手动确认，自定义连接器
+      publisher-returns: true
+      template:
+        mandatory: true
+    zipkin:
+      base-url: http://192.168.1.105:9411/
+      sender:
+        type: web  #2.0以后需要指定zipkin发送信息方式  web:http,rabbit:rabbit,kafka:kafka
+    sleuth:
+      sampler:
+        probability: 1  #发送请求百分比 ，用于抽样观察
+    http:
+      encoding:
+        charset: UTF-8
+    jackson:
+      date-format: yyyy-MM-dd HH:mm:ss  #格式化日期
+      time-zone: GMT+8
+      default-property-inclusion: non_null  #不允许传递为空
+    datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: localhost:3306/test
+      username: root
+      password: root
+      druid:
+        initial-size: 5
+        min-idle: 5
+        max-idle: 10
+        filter: #配置statFilter
+          stat:
+            db-type: mysql
+            log-slow-sql: true
+            slow-sql-millis: 5000
+          wall: #配置wallFilter
+            enabled: true
+            db-type: mysql
+            config:
+              delete-allow: false
+              drop-table-allow: false
+    #初始化连接池配置
+#eureka 一定要放在加载config下边
+  server:
+    port: 8084
+    servlet:
+      context-path: /
+  eureka:
+    client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    instance:
+      prefer-ip-address: true
+  #hystrix本身超时配置
+  hystrix:
+    command:
+     default:
+       execution:
+        isolation:
+         thread:
+           timeoutInMilliseconds: 5000      #配置请求超时时间
+     msg:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000      #为指定方法单独设置超时时间
+  #feign-hystrix 超时时间设置
+  feign:
+    hystrix:
+      enabled: true
+    client:
+      config:
+        default:
+          connectTimeout: 5000
+          readTimeout: 5000
+          loggerLevel: basic
+  #springboot2.0. 的配置项为：
+  #actuator端口
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "*"
+        base-path: /  #修改访问路径  2.0之前默认是/   2.0默认是 /actuator  可以通过这个属性值修改
+    server:
+      port: 9091
+  logging:
+    level:
+      org.springframework.cloud.openfeign: debug  #改变feign组件日志级别
+#,http://localhost:8762/eureka/  #因为调用config服务用到服务注册和发现所以需要先加载eureka配置 然后在调用config服务加载其他配置信息
+
+#spring:
+#  application:
+#    name: order  #对应配置服务名  /{name}-{profiles}.yml     /{label}/{name}-{profiles}.yml
+#  cloud:
+#    config:
+#      discovery:
+#        enabled: true
+#        service-id: CONFIG  #配置中心服务
+#     profile: dev #配置文件环境
+##PRODUCT:
+# # ribbon:
+#  #  NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+#   # NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule #改变ribbon负载均衡规则

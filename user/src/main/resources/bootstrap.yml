@@ -1,0 +1,20 @@
+#首先加载配置文件 引导文件
+spring:
+  application:
+    name: user #对应配置服务名  /{name}-{profiles}.yml     /{label}/{name}-{profiles}.yml
+  redis:
+    host: localhost
+    port: 6379
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG  #配置中心服务
+      profile: dev #配置文件环境
+#eureka 一定要放在加载config下边
+server:
+  port: 8086
+eureka:
+  client:
+  service-url:
+    defaultZone: http://localhost:8761/eureka/

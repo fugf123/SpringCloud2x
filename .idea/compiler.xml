@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api-gatway" />
+        <module name="client" />
+        <module name="client (1)" />
+        <module name="client (2)" />
+        <module name="common" />
+        <module name="common (1)" />
+        <module name="config" />
+        <module name="config_web" />
+        <module name="eureka" />
+        <module name="user" />
+        <module name="web" />
+        <module name="web (1)" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-gatway" target="1.8" />
+      <module name="client" target="1.8" />
+      <module name="client (1)" target="1.8" />
+      <module name="client (2)" target="1.8" />
+      <module name="common" target="1.8" />
+      <module name="common (1)" target="1.8" />
+      <module name="config" target="1.8" />
+      <module name="config_web" target="1.8" />
+      <module name="eureka" target="1.8" />
+      <module name="order" target="1.8" />
+      <module name="product" target="1.8" />
+      <module name="user" target="1.8" />
+      <module name="web" target="1.8" />
+      <module name="web (1)" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

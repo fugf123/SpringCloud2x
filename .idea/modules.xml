@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/SpringCloud2x.iml" filepath="$PROJECT_DIR$/.idea/SpringCloud2x.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api-gatway/api-gatway.iml" filepath="$PROJECT_DIR$/api-gatway/api-gatway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client/client.iml" filepath="$PROJECT_DIR$/client/client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/product/client/client (1).iml" filepath="$PROJECT_DIR$/product/client/client (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/order/client/client (2).iml" filepath="$PROJECT_DIR$/order/client/client (2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/product/common/common.iml" filepath="$PROJECT_DIR$/product/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order/common/common (1).iml" filepath="$PROJECT_DIR$/order/common/common (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/config/config.iml" filepath="$PROJECT_DIR$/config/config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config/config_web/config_web.iml" filepath="$PROJECT_DIR$/config/config_web/config_web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order/order.iml" filepath="$PROJECT_DIR$/order/order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/product/product.iml" filepath="$PROJECT_DIR$/product/product.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user/user.iml" filepath="$PROJECT_DIR$/user/user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/product/web/web.iml" filepath="$PROJECT_DIR$/product/web/web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order/web/web (1).iml" filepath="$PROJECT_DIR$/order/web/web (1).iml" />
+    </modules>
+  </component>
+</project>
