@@ -18,7 +18,7 @@ public class StreamReceiver {
 
     @StreamListener(StreamClient.INPUT)
     public void process(String message) {
-        log.info("Message {}",message);
+       // log.info("Message {}",message);
     }
 
     /**

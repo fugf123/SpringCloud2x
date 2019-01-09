@@ -49,4 +49,5 @@ public class ResultVo<T> {
         resultVo.setMsg(msg);
         return resultVo;
     }
+
 }

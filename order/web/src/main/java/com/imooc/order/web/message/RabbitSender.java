@@ -12,12 +12,12 @@ public class RabbitSender {
     private RabbitTemplate rabbitTemplate;
 
     //confirm回调函数  rabbitmq 自带的回调函数
-  /*  final ConfirmCallback confirmCallback = new ConfirmCallback() {
-        @Override
-        public void handle(long l, boolean b) throws IOException {
-            System.err.println();
-        }
-    }*/
+//    final ConfirmCallback confirmCallback = new ConfirmCallback() {
+//        @Override
+//        public void handle(long l, boolean b){
+//            System.err.println();
+//        }
+//    };
     //confirm回调函数  amqp中rabbitmq 自带的回调函数
     final RabbitTemplate.ConfirmCallback callback = new RabbitTemplate.ConfirmCallback() {
         @Override

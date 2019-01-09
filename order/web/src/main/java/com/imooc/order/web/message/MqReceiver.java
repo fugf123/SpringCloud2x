@@ -24,9 +24,10 @@ public class MqReceiver {
             value = @Queue("myQueue"),
             exchange = @Exchange("myExchange")
     ))
+
     public void process(String message) {
         System.out.println(message);
-        log.info("mq:{}",message);
+        //log.info("mq:{}",message);
     }
 
     /**
@@ -72,5 +73,4 @@ public class MqReceiver {
         channel.basicAck(delivery_tag,false);//确认签收 第一个参数  第二个参数表示是否批量接收
 
     }
-
 }

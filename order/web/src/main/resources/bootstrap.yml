@@ -11,30 +11,30 @@
           enabled: true
           service-id: CONFIG  #配置中心服务
         profile: dev #配置文件环境
-      stream:
-        bindings:
-          myMessageInput:
-            #destination: myStream
-            group: order     #对消息队列进行分组防止多个实例重复接受到消息
-            content-type: application/json  #改变返回结果格式
+#      stream:
+#        bindings:
+#          myMessageInput:
+#            #destination: myStream
+#            group: order     #对消息队列进行分组防止多个实例重复接受到消息
+#            content-type: application/json  #改变返回结果格式
           #myMessageOutput: myStream
-    rabbitmq:  #配置消息队列 基本配置
-      host: localhost
-      port: 5672
-      username: guest
-      password: guest
-      #客户端基本配置  监听消息
-      listener:
-        simple:
-          acknowledge-mode: manual  #签收模式manual手工签收。auto自动签收
-          concurrency: 5  #并发数
-          max-concurrency: 10  #最大并发数
-          prefetch: 1  #限流
-          #不建议开启事务
-      publisher-confirms: true  #异步等待，手动确认，自定义连接器
-      publisher-returns: true
-      template:
-        mandatory: true
+#    rabbitmq:  #配置消息队列 基本配置
+#      host: localhost
+#      port: 5672
+#      username: guest
+#      password: guest
+#      #客户端基本配置  监听消息
+#      listener:
+#        simple:
+#          acknowledge-mode: manual  #签收模式manual手工签收。auto自动签收
+#          concurrency: 5  #并发数
+#          max-concurrency: 10  #最大并发数
+#          prefetch: 1  #限流
+#          #不建议开启事务
+#      publisher-confirms: true  #异步等待，手动确认，自定义连接器
+#      publisher-returns: true
+#      template:
+#        mandatory: true
     zipkin:
       base-url: http://192.168.1.105:9411/
       sender:
@@ -49,26 +49,26 @@
       date-format: yyyy-MM-dd HH:mm:ss  #格式化日期
       time-zone: GMT+8
       default-property-inclusion: non_null  #不允许传递为空
-    datasource:
-      type: com.alibaba.druid.pool.DruidDataSource
-      url: localhost:3306/test
-      username: root
-      password: root
-      druid:
-        initial-size: 5
-        min-idle: 5
-        max-idle: 10
-        filter: #配置statFilter
-          stat:
-            db-type: mysql
-            log-slow-sql: true
-            slow-sql-millis: 5000
-          wall: #配置wallFilter
-            enabled: true
-            db-type: mysql
-            config:
-              delete-allow: false
-              drop-table-allow: false
+#    datasource:
+#      type: com.alibaba.druid.pool.DruidDataSource
+#      url: localhost:3306/test
+#      username: root
+#      password: root
+#      druid:
+#        initial-size: 5
+#        min-idle: 5
+#        max-idle: 10
+#        filter: #配置statFilter
+#          stat:
+#            db-type: mysql
+#            log-slow-sql: true
+#            slow-sql-millis: 5000
+#          wall: #配置wallFilter
+#            enabled: true
+#            db-type: mysql
+#            config:
+#              delete-allow: false
+#              drop-table-allow: false
     #初始化连接池配置
 #eureka 一定要放在加载config下边
   server:

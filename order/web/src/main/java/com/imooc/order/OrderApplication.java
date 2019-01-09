@@ -24,11 +24,12 @@ import java.util.Properties;
 public class OrderApplication {
 
 	public static void main(String[] args) throws IOException {
-		/*Properties properties = new Properties();
-		InputStream inputStream = Application.class.getClassLoader().getResourceAsStream("druid.properties");
-		properties.load(inputStream);
-		SpringApplication app = new SpringApplication(Application.class);
-		app.setDefaultProperties(properties);*/
+//		Properties properties = new Properties();
+//		InputStream inputStream = Application.class.getClassLoader().getResourceAsStream("druid.properties");
+//		properties.load(inputStream);
+//		SpringApplication app = new SpringApplication(Application.class);
+//		app.setDefaultProperties(properties);
+//		app.run(args);
 		SpringApplication.run(OrderApplication.class, args);
 	}
 }

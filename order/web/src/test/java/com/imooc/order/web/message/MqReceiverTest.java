@@ -31,6 +31,10 @@ public class MqReceiverTest extends OrderApplicationTests {
     }
     @Test
     public void sendFruit() {
-        amqpTemplate.convertAndSend("myQueue","fruit","date:"+System.currentTimeMillis());
+        amqpTemplate.convertAndSend("myOrder","fruit","date:"+System.currentTimeMillis());
+    }
+    @Test
+    public void sendFruitR() {
+        rabbitTemplate.convertAndSend("order-exchange","order.*","date:"+System.currentTimeMillis());
     }
 }

@@ -1,6 +1,5 @@
 package com.imooc.order.web.controller;
 
-//import com.imooc.order.client.client.ProductClient;
 import com.imooc.product.client.client.ProductClient;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
